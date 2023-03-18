@@ -20,7 +20,7 @@
 &nbsp; &nbsp; &nbsp;5. Then it will be work
    
 
-
+## Others
 live2d from -> https://github.com/Colorfulshadow/live-2d
 
 
