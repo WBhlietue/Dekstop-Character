@@ -2,7 +2,7 @@
 Download link is here -> https://github.com/WBhlietue/Dekstop-Character/releases/download/v0.1/DesktopCharacter.zip
 
 
-or Clone or download source code to your computer;
+or Clone or download source code to your computer;\
 How to use sorce code:
 <pre>
 1. if you have nodejs then 
