@@ -1,4 +1,4 @@
-Download link is here -> https://drive.google.com/file/d/1eEa2syFqf_-zDb51DiwEMwd_uHH3aFXE/view?usp=share_link
+Download link is here -> https://github.com/WBhlietue/Dekstop-Character/releases/download/v0.1/DesktopCharacter.zip
 
 
 
