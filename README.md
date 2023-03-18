@@ -4,7 +4,7 @@
 ## Click this link, then it will download a ZIP file;
 &nbsp; &nbsp; &nbsp;Then \
 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;if download over then unzip it.\
-&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;then find and double click  **DesktopCharacter.exe**  file, then it will be work.\
+&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;then find and double click  "**DesktopCharacter.exe**"  file, then it will be work.\
 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Enjoy it :)
 
 ## or Clone or download source code to your computer;
