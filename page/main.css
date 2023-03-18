@@ -1,0 +1,59 @@
+#live2d {
+  width: 600px;
+  height: 672px;
+  position: relative;
+  z-index: -1;
+}
+
+body:hover #headBar{
+  opacity: 1;
+}
+#headBar{
+  border-radius: 1000px;
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background-color: #ff9837aa;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 1px;
+  opacity: 0;
+  transition: all 0.2s;
+}
+img{
+  position:relative;
+  left: 0%;
+  top: 0%;
+  margin: 0;
+  padding: 0;
+}
+.btn{
+  position: relative;
+  border-radius: 100%;
+  background-color: #000000;
+  width: 30px;
+  height: 30px;
+  margin: 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10
+}
+body {
+  background-color: #00000000;
+  overflow: visible;
+}
+.dragBlock{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+canvas{
+  overflow: visible;
+}

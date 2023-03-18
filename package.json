@@ -1,0 +1,19 @@
+{
+  "name": "people",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "package": "electron-packager . DesktopCharacter --platform=win32 --arch=x64 --icon=moon.ico --out=./out --app-version=0.0.1 --overwrite --ignore=node_modules && cd ./out/DesktopCharacter-win32-x64/resources/app && move ./data.json ../../data.json"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^23.1.4",
+    "electron-packager": "^17.1.1",
+    "fs": "^0.0.1-security"
+  }
+}

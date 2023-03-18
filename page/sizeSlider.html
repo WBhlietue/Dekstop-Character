@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Set Size</title>
+    <style>
+        
+        .set{
+            display: flex;
+            flex-direction: 1;
+        }
+        button{
+            flex: 1;
+        }
+        input{
+            flex: 3;
+        }
+        label{
+            text-align: center;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="set">
+        <label>Size</label>
+        <input id = "slider" type="range" min=50 max=200 value = 100>
+        <label id="value">1.00</label>
+    </div>
+        <br/>
+        <div class="set">
+            <button id="cancel">Cancel</button>
+            <button id="set">Set</button>
+        </div>
+    </div>
+    <script src="slider.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <canvas
+      id="live2d"
+      width="1000"
+      height="1030"
+      class="live2d"
+      style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      "
+    ></canvas>
+    <div id="headBar">
+      <div id="close" class="btn optionBtn">
+        <img src="../assets/images/close.png" width="60%"/>
+      </div>
+      <div  class="btn optionBtn">
+        <img  src="../assets/images/move.png" width="75%"/>
+        <div id="drag" class="dragBlock"></div>
+      </div>
+      <div id="" class="btn optionBtn">
+        <img id="changeSize" src="../assets/images/expand.png" width="60%"/>
+      </div>
+      <div id="openSettingsWindow" class="btn optionBtn">
+        <img src="../assets/images/black-settings-button.png" width="75%"/>
+      </div>
+      <div id="gotoGithub" class="btn optionBtn">
+        <img src="../assets/images/info.png" width="75%"/>
+      </div>
+      <div id="arrow" class="btn">
+        <img src="../assets/images/right-arrow.png" width="60%"/>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"
+    ></script>
+
+    <script type="text/javascript" src="./live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="./live2d/js/message.js"></script>
+    <script type="module" src="main.js">
+    </script>
+    
+  </body>
+</html>

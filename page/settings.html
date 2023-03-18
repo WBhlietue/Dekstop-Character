@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Settings</title>
+
+    <style>
+        .main{
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            left: 0;
+            top: 0;
+            flex: 2;
+            width: 100vw;
+            height: 100vh;
+        }
+        .mainL{
+            position: relative;
+            flex: 1;
+            background-color: rgb(177, 202, 246);
+            display: flex;
+            flex-direction: column;
+            justify-content:space-around
+        }
+        .mainR{
+            position: relative;
+            flex: 3;
+            background-color: antiquewhite;
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            overflow-y: scroll;
+        
+        }
+        .listBtn{
+            /* height: 100px; */
+            font-size: 15px;
+            padding: 15px;
+            background-color: #0000000f;
+            outline: none;
+            border: none;
+            transition: all 0.3s;
+        }
+        .listBtn:hover{
+            /* height: 100px; */
+            background-color: antiquewhite;
+        }
+
+        .sd{
+            font-size: 15px;
+            padding: 10px ;
+            background-color: #00ff00;
+            border: 1px #00dd00 solid;
+            transition: all 0.3s;
+            border-radius: 100px;
+            margin: 10px;
+        }
+        .sd:hover{
+            background-color: #00aabb;
+        }
+
+        .active{
+            background-color: antiquewhite;
+        }
+        table{
+            margin: 20px;
+        }
+        td{
+            padding: 10px;
+        }
+#currentModel, #defaultMode, #startX, #startY, #scale{
+    width: 30px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="mainL">
+            <button class="listBtn" onclick="BtnClick(this.innerHTML)">Model</button>
+            <button class="listBtn" onclick="BtnClick(this.innerHTML)">Window</button>
+            <button class="sd" id="defaultBtn" >Default</button>
+            <button class="sd" id="saveBtn" >Save</button>
+        </div>
+        <div class="mainR">
+            <div id="Model">
+                <table>
+                    <!-- <tr>
+                        <td >Current</td>
+                        <td ><input id="curIn" type="range" min="1" max="55" value="1" oninput="SliderChange(this.value, 'currentModel')"></td>
+                        <td id="currentModel" >1</td>
+                    </tr> -->
+                    <tr>
+                        <td >Default</td>
+                        <td ><input id="defIn" type="range" min="1" max="55" value="1" oninput="SliderChange(this.value, 'defaultModel')"></td>
+                        <td id="defaultModel" >1</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Window">
+                <br>
+                <label>Start Position</label>
+                <table>
+                    <tr>
+                        <td >X</td>
+                        <td ><input id="stXIn" type="range" min="1" max="100" value="50" oninput="SliderChange(this.value, 'startX')"></td>
+                        <td id="startX" >1</td>
+                    </tr>
+                    <tr>
+                        <td >Y</td>
+                        <td ><input id="stYIn" type="range" min="1" max="100" value="50" oninput="SliderChange(this.value, 'startY')"></td>
+                        <td id="startY" >1</td>
+                    </tr>
+                </table>
+                <label>Initial Size</label>
+                <br>
+                        <input id="scIn" style="margin-left: 40px; margin-top: 20px;" type="range" min="50" max="200" value="100" oninput="SliderChange(this.value, 'scale')">
+                        <label id="scale" >1</label>
+                </table>
+            </div>
+        </div>
+    </div>
+   
+    <script >
+        const btns= document.querySelectorAll(".listBtn")
+        OffDisplay()
+        BtnClick(btns[0].innerHTML)
+        var curModel = 1, defModel = 1;
+        var startX, startY, scale;
+        function InitDatas(){
+            // alert(document.getElementById("curIn"))
+            // document.getElementById("curIn").value = curModel;
+            document.getElementById("defIn").value = defModel;
+            document.getElementById("stXIn").value = startX;
+            document.getElementById("stYIn").value = startY;
+            document.getElementById("scIn").value = scale*100;
+            // SliderChange(curModel, "currentModel");
+            SliderChange(defModel, "defaultModel");
+            SliderChange(startX, "startX");
+            SliderChange(startY, "startY");
+            SliderChange(scale * 100, "scale");   
+        }
+        function OffDisplay(){
+            btns.forEach((i) => {
+                document.getElementById(i.innerHTML).style.display = "none";
+            })
+        }
+        function BtnClick(name){
+            for(let i = 0; i < btns.length; i++){
+                btns[i].classList.remove("active");
+                if(btns[i].innerHTML == name){
+                    btns[i].classList.add("active");
+                }
+            }
+            OffDisplay();
+            document.getElementById(name).style.display = "inline"
+
+            
+        }
+        function SliderChange(value, type){
+            switch(type )
+            {
+                case "currentModel":
+                    curModel = value;
+                    break ;
+                case "defaultModel":
+                    defModel = value;
+                    break;
+                case "startX":
+                    startX = value;
+                    break;
+                case "startY":
+                    startY = value;
+                    break;
+                case "scale":
+                    value = (value / 100).toFixed(2)
+                    scale= value;
+                    break;
+                
+            }
+            document.getElementById(type).innerHTML= value
+        }
+    </script>
+     <script type="module" src="settings.js"></script>
+</body>
+</html>
