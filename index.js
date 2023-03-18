@@ -11,7 +11,7 @@ const initWidth = 300;
 const initHeight = 500;
 
 const fs = require("fs");
-var data = JSON.parse(fs.readFileSync("data.json"));
+var data = JSON.parse(fs.readFileSync("app/data.json"));
 
 const posX = parseInt(data.startX);
 const posY = parseInt(data.startY);
@@ -31,14 +31,12 @@ const createWindow = (pX, pY, m, s) => {
   );
   if (pX < 10) {
     pX = 10;
-  } else if (pX > screen.getPrimaryDisplay().bounds.width * s - width) {
-    pX = screen.getPrimaryDisplay().bounds.width * s - width;
   }
+  console.log(pY);
   if (pY < 10) {
     pY = 10;
-  } else if (pY > screen.getPrimaryDisplay().bounds.height * s - height) {
-    pY = screen.getPrimaryDisplay().bounds.height * s - height;
   }
+  console.log(pY);
   win = new BrowserWindow({
     width: width,
     height: height,
@@ -70,7 +68,7 @@ const createWindow = (pX, pY, m, s) => {
     shell.openExternal("https://github.com/WBhlietue/Dekstop-Character");
   });
   win.setAlwaysOnTop(true, "screen");
-  win.loadURL(__dirname + "/page/index.html?modelName=" + m);
+  win.loadURL(__dirname + "/app/page/index.html?modelName=" + m);
   windowMove(win);
   setTimeout(() => {
     win.webContents.send("ChageSize", s);
@@ -96,7 +94,7 @@ const sliderWindow = (val) => {
 
   sizeWindow.removeMenu();
   sizeWindow.setAlwaysOnTop(true, "screen");
-  sizeWindow.loadURL(__dirname + "/page/sizeSlider.html?val=" + val);
+  sizeWindow.loadURL(__dirname + "/app/page/sizeSlider.html?val=" + val);
 };
 const settingsWindow = (val) => {
   let sizeWindow = new BrowserWindow({
@@ -108,13 +106,13 @@ const settingsWindow = (val) => {
     },
   });
   ipcMain.once("closeSettingsWindow", () => {
-    var data = JSON.parse(fs.readFileSync("data.json"));
+    var data = JSON.parse(fs.readFileSync("app/data.json"));
     let pX = parseInt(data.startX);
     let pY = parseInt(data.startY);
     let scale = parseFloat(data.initScale);
     let m = parseInt(data.defaultModel);
 
-    win.loadURL(__dirname + "/page/index.html?modelName=" + m);
+    win.loadURL(__dirname + "/app/page/index.html?modelName=" + m);
     setTimeout(() => {
       win.webContents.send("ChageSize", scale);
       pX = parseInt(
@@ -125,13 +123,9 @@ const settingsWindow = (val) => {
       );
       if (pX < 10) {
         pX = 10;
-      } else if (pX > screen.getPrimaryDisplay().bounds.width - width) {
-        pX = screen.getPrimaryDisplay().bounds.width - width;
       }
       if (pY < 10) {
         pY = 10;
-      } else if (pY > screen.getPrimaryDisplay().bounds.height - height) {
-        pY = screen.getPrimaryDisplay().bounds.height - height;
       }
 
       win.setPosition(pX, pY);
@@ -141,7 +135,7 @@ const settingsWindow = (val) => {
 
   sizeWindow.removeMenu();
   sizeWindow.setAlwaysOnTop(true, "screen");
-  sizeWindow.loadURL(__dirname + "/page/settings.html");
+  sizeWindow.loadURL(__dirname + "/app/page/settings.html");
 };
 
 app.whenReady().then(() => {
