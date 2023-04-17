@@ -7,6 +7,8 @@ const {
   shell,
 } = require("electron");
 
+const path = require("path");
+
 const initWidth = 300;
 const initHeight = 500;
 
@@ -68,7 +70,10 @@ const createWindow = (pX, pY, m, s) => {
     shell.openExternal("https://github.com/WBhlietue/Dekstop-Character");
   });
   win.setAlwaysOnTop(true, "screen");
-  win.loadURL(__dirname + "/app/page/index.html?modelName=" + m);
+  // win.loadURL( "./test.html")
+  const p = path.join(__dirname, "app", "page", "index.html")
+  win.loadURL("file://" + p + "?modelName="+m);
+  // win.loadFile(__dirname + "/app/page/index.html");
   windowMove(win);
   setTimeout(() => {
     win.webContents.send("ChageSize", s);
@@ -94,7 +99,8 @@ const sliderWindow = (val) => {
 
   sizeWindow.removeMenu();
   sizeWindow.setAlwaysOnTop(true, "screen");
-  sizeWindow.loadURL(__dirname + "/app/page/sizeSlider.html?val=" + val);
+  const p = path.join(__dirname, "app", "page", "sizeSlider.html");
+  sizeWindow.loadURL("file://" + p + "?val=" + val);
 };
 const settingsWindow = (val) => {
   let sizeWindow = new BrowserWindow({
@@ -135,7 +141,7 @@ const settingsWindow = (val) => {
 
   sizeWindow.removeMenu();
   sizeWindow.setAlwaysOnTop(true, "screen");
-  sizeWindow.loadURL(__dirname + "/app/page/settings.html");
+  sizeWindow.loadFile(__dirname + "/app/page/settings.html");
 };
 
 app.whenReady().then(() => {
