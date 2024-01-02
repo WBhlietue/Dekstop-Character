@@ -123,7 +123,7 @@ const settingsWindow = (val) => {
     },
   });
   ipcMain.once("closeSettingsWindow", () => {
-    var data = JSON.parse(fs.readFileSync("app/data.json"));
+    var data = JSON.parse(fs.readFileSync(app.getAppPath()+"/app/data.json"));
     let pX = parseInt(data.startX);
     let pY = parseInt(data.startY);
     let scale = parseFloat(data.initScale);

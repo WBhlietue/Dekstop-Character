@@ -1,7 +1,8 @@
 const { ipcRenderer } = require("electron");
 var fs = require("fs");
+
 var jsonData;
-fs.readFile("app/data.json", (err, data) => {
+fs.readFile( "app/data.json", (err, data) => {
   jsonData = JSON.parse(data);
   defModel = jsonData.defaultModel;
   startX = jsonData.startX;
