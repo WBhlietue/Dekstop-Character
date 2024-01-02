@@ -6,15 +6,23 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
+    "build": "electron-builder",
     "package": "electron-packager . DesktopCharacter --platform=win32 --arch=x64 --icon=app/moon.ico --out=./out --app-version=0.0.1 --overwrite --ignore=node_modules && cd ./out/DesktopCharacter-win32-x64 && mkdir app  && cd ./resources/app/app && move ./data.json ../../../app/data.json"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "asar": "^3.2.0",
     "electron": "^23.1.4",
+    "electron-builder": "^24.9.1",
     "electron-packager": "^17.1.1",
     "fs": "^0.0.1-security",
     "path": "^0.12.7"
+  },
+  "build": {
+    "mac": {
+      "target": "dmg",
+      "icon": "app/assets/logo.icns"
+    }
   }
 }

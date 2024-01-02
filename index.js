@@ -13,7 +13,8 @@ const initWidth = 300;
 const initHeight = 500;
 
 const fs = require("fs");
-var data = JSON.parse(fs.readFileSync("app/data.json"));
+console.log(app.getAppPath());
+var data = JSON.parse(fs.readFileSync(app.getAppPath() + "/app/data.json"));
 
 const posX = parseInt(data.startX);
 const posY = parseInt(data.startY);
@@ -51,6 +52,16 @@ const createWindow = (pX, pY, m, s) => {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    alwaysOnTop: true,
+  });
+  win.setAlwaysOnTop(true, "screen-saver");
+  win.setVisibleOnAllWorkspaces(true);
+  win.on('blur', () => {
+    win.setAlwaysOnTop(true);
+  });
+  
+  win.on('focus', () => {
+    win.setAlwaysOnTop(false);
   });
 
   ipcMain.on("Test", () => {});
@@ -71,8 +82,8 @@ const createWindow = (pX, pY, m, s) => {
   });
   win.setAlwaysOnTop(true, "screen");
   // win.loadURL( "./test.html")
-  const p = path.join(__dirname, "app", "page", "index.html")
-  win.loadURL("file://" + p + "?modelName="+m);
+  const p = path.join(__dirname, "app", "page", "index.html");
+  win.loadURL("file://" + p + "?modelName=" + m);
   // win.loadFile(__dirname + "/app/page/index.html");
   windowMove(win);
   setTimeout(() => {
