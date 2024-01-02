@@ -1,5 +1,6 @@
 
 # Download link is here -> https://github.com/WBhlietue/Dekstop-Character/releases/download/v0.1/DesktopCharacter.zip
+# Download link is here -> https://github.com/WBhlietue/Dekstop-Character/releases/download/v0.1/DesctopCharacterMac.zip
 
 ## Click this link, then it will download a ZIP file;
 &nbsp; &nbsp; &nbsp;Then \
